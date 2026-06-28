@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="new.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo" href="localhost/project%20feast/home.html"></div>
+            <div class="off"><a href="offer.html">offers</a></div>
+            <div></div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <div><input type="search" placeholder="search for food" id="nav-search" onkeyup="searchFood()"></div>
+                <div id="search-results"></div>
+            </div>
+            <script>
+            function searchFood() {
+                var query = document.getElementById('nav-search').value;
+            
+                // Don't search if input is less than 3 characters
+                if (query.length < 3) {
+                    document.getElementById('search-results').innerHTML = ''; 
+                    return;
+                }
+            
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "search.php?query=" + query, true);
+            
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        try {
+                            console.log("Response Text:", xhr.responseText);
+                            var data = JSON.parse(xhr.responseText); // Attempt to parse the JSON response
+            
+                            var resultsContainer = document.getElementById('search-results');
+                            resultsContainer.innerHTML = ''; // Clear previous results
+            
+                            if (data.length > 0) {
+                                data.forEach(function(food) {
+                                    var foodItem = document.createElement('div');
+                                    foodItem.classList.add('food-item');
+                                    
+                                    foodItem.innerHTML = `
+                                        <div class="food-item">
+                                            <div class="info">
+                                            </div>
+                                            <h3 class="food-name">${food.name}</h3>
+                                            <p>${food.description}</p>
+                                            <img src="${food.image_url}" alt="${food.name}" />
+                                            <p class="price">${food.price}</p>
+                                        </div>`;
+
+    
+
+
+
+                                    
+                                    resultsContainer.appendChild(foodItem);
+                                });
+                            } else {
+                                resultsContainer.innerHTML = "<p>No results found</p>";
+                            }
+                        } catch (e) {
+                            console.error("Error parsing JSON:", e);
+                            document.getElementById('search-results').innerHTML = "<p>There was an error processing your request. Please try again later.</p>";
+                        }
+                    } else {
+                        console.error("Request failed with status:", xhr.status);
+                        document.getElementById('search-results').innerHTML = "<p>There was an error processing your request. Please try again later.</p>";
+                    }
+                };
+            
+                xhr.onerror = function() {
+                    console.error("Request failed");
+                    document.getElementById('search-results').innerHTML = "<p>There was an error processing your request. Please try again later.</p>";
+                };
+            
+                xhr.send();
+            }
+        </script>
+            
+            
+            <div class="help">Help</div>
+            <div class="cart"> 
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>What do you want to eat ?</h2>
+        <div class="food-img">
+            <div class="img1"></div>
+            <div class="img2"></div>
+            <div class="img3"></div>
+            <div class="img4"></div>
+            <div class="img5"></div>
+            <div class="img6"></div>
+        </div>
+        <h2>Top Restaurants In Patiala</h2>
+        <div class="res-img">
+            <div class="res1">
+                <div class="pic">Uttam's Buffet And Restaurant</div>
+            </div>
+            <div class="res2">
+                <div class="pic">Baskin Robins</div>
+            </div>
+            <div class="res3">
+                <div class="pic">The Hot Shots</div>
+            </div>
+            <div class="res4">
+                <div class="pic">Club 16</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

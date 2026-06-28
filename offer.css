@@ -1,0 +1,112 @@
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.home-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-link-btn {
+    font-size: 18px;
+    background-color: #ff6347; /* Tomato color */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-link-btn:hover {
+    background-color: #d9534f; /* Darker Tomato color */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Container class for better alignment */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header Section */
+.page-header {
+    background-color: brown; /* Tomato color for header */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 18px;
+}
+
+/* Offers Section */
+.offers-section {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.offer-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card h3 {
+    font-size: 24px;
+    color: brown; /* Tomato color for offer titles */
+    margin-bottom: 10px;
+}
+
+.offer-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.offer-card .offer-date {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Hover effect for offer cards */
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    font-size: 14px;
+}

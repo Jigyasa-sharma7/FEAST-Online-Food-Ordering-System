@@ -1,0 +1,75 @@
+#search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.food-item {
+    background-color: #fff;/* White background for food items */
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    /* overflow: hidden; Prevent content from overflowing the container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced evenly */
+    height: 100%;
+}
+
+.food-item:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Slight shadow increase on hover */
+}
+
+.food-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0; /* Round the top corners of the image */
+}
+
+.food-item .info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.food-item h3 {
+    font-size: 1.4rem;
+    color: brown;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.food-item p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+    margin-top: 250px;
+    word-wrap: break-word;
+}
+
+.food-item .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: brown;
+    margin-top: 5px;
+}
+
+.food-item .price::before {
+    content: "Rs.";
+}
+
+.food-item .food-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: brown;
+}
+
+p{
+    color: brown;
+    margin-top: 100px;
+}
+
